@@ -2,6 +2,7 @@ import { Typography } from "@mui/material"
 import Head from "next/head"
 import Image from "next/image"
 import styles from "../../styles/Home.module.css"
+import Layout from "../components/layout"
 
 export default function Home() {
 	return (
@@ -15,9 +16,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<Typography component="h1" variant="h1">
-				Sanity Amazona
-			</Typography>
+			<Layout>Sanity amazona</Layout>
 		</div>
 	)
 }
