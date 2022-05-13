@@ -6,6 +6,7 @@ import {
 	CssBaseline,
 	Link,
 	Switch,
+	Badge,
 	ThemeProvider,
 	Toolbar,
 	Typography,
@@ -20,7 +21,7 @@ import { Store } from "../../utils/Store"
 
 function Layout({ title, description, children }) {
 	const { state, dispatch } = useContext(Store)
-	const { darkMode } = state
+	const { darkMode, cart } = state
 	const theme = createTheme({
 		components: {
 			MuiLink: {
@@ -79,6 +80,22 @@ function Layout({ title, description, children }) {
 								checked={darkMode}
 								onChange={darkModeChangeHandler}
 							></Switch>
+							<NextLink href="/cart" passHref>
+								<Link>
+									<Typography component="span">
+										{cart.cartItems.length > 0 ? (
+											<Badge
+												color="secondary"
+												badgeContent={cart.cartItems.length}
+											>
+												Cart
+											</Badge>
+										) : (
+											"Cart"
+										)}
+									</Typography>
+								</Link>
+							</NextLink>
 						</Box>
 					</Toolbar>
 				</AppBar>
