@@ -96,6 +96,9 @@ function Layout({ title, description, children }) {
 									</Typography>
 								</Link>
 							</NextLink>
+							<NextLink href="/login" passHref>
+								<Link>Login</Link>
+							</NextLink>
 						</Box>
 					</Toolbar>
 				</AppBar>
