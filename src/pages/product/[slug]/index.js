@@ -15,13 +15,13 @@ import Image from "next/image"
 import NextLink from "next/link"
 import { useContext, useEffect, useState } from "react"
 import { useSnackbar } from "notistack"
-import Layout from "../../../components/layout"
 import classes from "../../../utils/classes"
 import client from "../../../utils/sanityClient"
 import { urlFor, urlForThumbnail } from "../../../utils/image"
 import { Store } from "../../../utils/Store"
 import { useRouter } from "next/router"
 import axios from "axios"
+import Layout from "../../../components/Layout"
 
 export default function ProductScreen(props) {
 	const router = useRouter()

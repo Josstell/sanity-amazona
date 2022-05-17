@@ -4,12 +4,13 @@ import axios from "axios"
 import { useRouter } from "next/router"
 import { useSnackbar } from "notistack"
 import { useContext, useEffect, useState } from "react"
-import Layout from "../components/layout"
 import ProductItem from "../components/ProductItem"
 import client from "../utils/sanityClient"
 
 import { urlForThumbnail } from "../utils/image"
 import { Store } from "../utils/Store"
+
+import Layout from "../components/Layout"
 
 export default function Home() {
 	const {
@@ -65,33 +66,23 @@ export default function Home() {
 	}
 
 	return (
-		<div>
-			<Head>
-				<title>Sanity Amazona</title>
-				<meta
-					name="description"
-					content="The Ecommerce website by next and sanity"
-				/>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			<Layout>
-				{loading ? (
-					<CircularProgress />
-				) : error ? (
-					<Alert variant="danger">{error}</Alert>
-				) : (
-					<Grid container spacing={3}>
-						{products?.map((product) => (
-							<Grid item md={4} key={product.slug}>
-								<ProductItem
-									product={product}
-									addToCartHandler={addToCartHandler}
-								></ProductItem>{" "}
-							</Grid>
-						))}
-					</Grid>
-				)}
-			</Layout>{" "}
-		</div>
+		<Layout>
+			{loading ? (
+				<CircularProgress />
+			) : error ? (
+				<Alert variant="danger">{error}</Alert>
+			) : (
+				<Grid container spacing={3}>
+					{products?.map((product) => (
+						<Grid item md={4} key={product.slug}>
+							<ProductItem
+								product={product}
+								addToCartHandler={addToCartHandler}
+							></ProductItem>{" "}
+						</Grid>
+					))}
+				</Grid>
+			)}
+		</Layout>
 	)
 }

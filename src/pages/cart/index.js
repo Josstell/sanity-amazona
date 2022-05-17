@@ -22,10 +22,12 @@ import Image from "next/image"
 import NextLink from "next/link"
 import { useSnackbar } from "notistack"
 import { useContext } from "react"
+import { useRouter } from "next/router"
 import Layout from "../../components/layout"
 import { Store } from "../../utils/Store"
 
 function CartScreen() {
+	const router = useRouter()
 	const {
 		state: {
 			cart: { cartItems },
@@ -153,7 +155,15 @@ function CartScreen() {
 									</Typography>
 								</ListItem>
 								<ListItem>
-									<Button fullWidth color="primary" variant="contained">
+									<Button
+										onClick={() => {
+											router.push("/shipping")
+										}}
+										fullWidth
+										color="primary"
+										variant="contained"
+									>
+										{" "}
 										Checkout
 									</Button>
 								</ListItem>
